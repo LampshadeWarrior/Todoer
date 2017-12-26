@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: todoer_production
-  username: todoer
-  password: <%= ENV['TODOER_DATABASE_PASSWORD'] %>
+  # username: todoer
+  # password: <%= ENV['TODOER_DATABASE_PASSWORD'] %>
