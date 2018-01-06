@@ -26,6 +26,12 @@ RSpec.describe TasksController, type: :controller do
       expect(task.done).to eq(true)
     end
   end
-
-
+  describe "task#create" do
+    it "should allow new tasks to be created" do
+      post :create, task: {title: "Fix bread machine"}
+      response_value = ActiveSupport::JSON.decode(@response.body)
+      expect(response_value['title']).to eq("Fix bread machine")
+      expect(Task.last.title).to eq("Fix bread machine")
+    end
+  end
 end
